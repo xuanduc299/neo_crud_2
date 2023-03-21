@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>List Product</h1>
+        </div>
+        <div class="card-body">
+            <input [(ngModel)]="searchText" type="search" class="form-control" placeholder="Search"
+                style="margin: 10px auto; width: 50%;">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Id</th>
+                        <th>maSp</th>
+                        <th (click)="sortName()">name</th>
+                        <th>date</th>
+                        <th>product_width</th>
+                        <th>product_height</th>
+                        <th>color</th>
+                        <th (click)="sortQuantity()">quantity</th>
+                        <th>brand</th>
+                        <th>material</th>
+                        <th>sectors</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of product | studentFilterPipe:searchText">
+                        <td>{{product.id}}</td>
+                        <td>{{product.maSp}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.date}}</td>
+                        <td>{{product.product_width}}</td>
+                        <td>{{product.product_height}}</td>
+                        <td>{{product.color}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.brand}}</td>
+                        <td>{{product.material}}</td>
+                        <td>{{product.sectors}}</td>
+
+
+                        <td>
+                            <button (click)="updateUser(product)" class="btn btn-warning">Edit</button>
+                            <button (click)="deleteUser(product)" class="btn btn-danger">Delete</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
