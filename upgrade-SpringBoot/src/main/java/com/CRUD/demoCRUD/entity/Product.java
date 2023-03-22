@@ -25,7 +25,13 @@ public class Product extends BaseObject{
     @Column
     private String material;
     @Column
-    private String sectors;// loại hàng
+    private String sectors;
+    @Column
+    private String province;
+    @Column
+    private String district;
+    @Column
+    private String village;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "product")
     private List<Customer> customerList;
@@ -53,6 +59,8 @@ public class Product extends BaseObject{
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
+
+
 
     public String getDate() {
         return date;
@@ -108,6 +116,30 @@ public class Product extends BaseObject{
 
     public void setSectors(String sectors) {
         this.sectors = sectors;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getVillage() {
+        return village;
+    }
+
+    public void setVillage(String village) {
+        this.village = village;
     }
 
     public List<Customer> getCustomerList() {

@@ -13,14 +13,14 @@
                         <th>maSp</th>
                         <th (click)="sortName()">name</th>
                         <th>date</th>
-                        <th>product_width</th>
-                        <th>product_height</th>
                         <th>color</th>
                         <th (click)="sortQuantity()">quantity</th>
                         <th>brand</th>
                         <th>material</th>
                         <th>sectors</th>
-
+                        <th>province</th>
+                        <th>district</th>
+                        <th>village</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,14 +29,14 @@
                         <td>{{product.maSp}}</td>
                         <td>{{product.name}}</td>
                         <td>{{product.date}}</td>
-                        <td>{{product.product_width}}</td>
-                        <td>{{product.product_height}}</td>
                         <td>{{product.color}}</td>
                         <td>{{product.quantity}}</td>
                         <td>{{product.brand}}</td>
                         <td>{{product.material}}</td>
                         <td>{{product.sectors}}</td>
-
+                        <td>{{product.province}}</td>
+                        <td>{{product.district}}</td>
+                        <td>{{product.village}}</td>
 
                         <td>
                             <button (click)="updateUser(product)" class="btn btn-warning">Edit</button>

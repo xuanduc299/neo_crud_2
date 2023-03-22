@@ -73,6 +73,67 @@ export class AddUserComponent implements OnInit {
     this.showAlert = false;
   }
 
+  public cities = [
+    {
+      city: 'Chọn thành phố!',
+      district: [],
+    },
+    {
+      city: 'Hn',
+      district: [
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+      ],
+    },
+    {
+      city: 'HP',
+      district: [
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+      ],
+    },
+    {
+      city: 'DN',
+      district: [
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+      ],
+    },
+  ];
+  public districts: string[] = ['quan/huyen'];
+
+  public changeCity(event: any) {
+    const city = event.target.value
+    if (!city) {
+      return;
+    }
+    //cach 1
+    // const search = this.cities.filter(data => data.city === city)
+    // console.log('event', search);
+    // if (search && search.length > 0) {
+    //   this.districts = search[0].district;
+    // }
+
+    //cach 2 
+    this.districts = this.cities.find(data => data.city === city)?.district || [];
+
+  }
+
 
 
 }

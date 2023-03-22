@@ -19,7 +19,9 @@ public class Convert {
         product.setBrand(productDTO.getBrand());
         product.setMaterial(productDTO.getMaterial());
         product.setSectors(productDTO.getSectors());
-
+        product.setProvince(productDTO.getProvince());
+        product.setDistrict(productDTO.getDistrict());
+        product.setVillage(productDTO.getVillage());
     }
 
     public void convertDataIntoDTO(CustomerDTO customerDTO, Customer customer,Product product){

@@ -14,6 +14,8 @@ export class Product {
     brand?: string;
     material?: string;
     sectors?: string;
-
+    province?: string;
+    district?: string;
+    village?: string;
 
 }

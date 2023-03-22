@@ -30,6 +30,10 @@ export class EditUserComponent implements OnInit {
       brand: ['', [Validators.required]],
       material: ['', [Validators.required]],
       sectors: ['', [Validators.required]],
+      province: ['', [Validators.required]],
+      district: ['', [Validators.required]],
+      village: ['', [Validators.required]],
+
     });
   }
 
@@ -57,5 +61,116 @@ export class EditUserComponent implements OnInit {
 
   closeAlert() {
     this.showAlert = false;
+  }
+
+
+  public cities = [
+    {
+      city: 'Chọn thành phố!',
+      district: [],
+      village: [],
+    },
+    {
+      city: 'Hn',
+      district: [
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+        'HN',
+      ],
+      village: [
+        'HN1',
+        'HN1',
+        'HN1',
+        'HN1',
+        'HN1',
+        'HN1',
+        'HN1',
+      ],
+    },
+    {
+      city: 'HP',
+      district: [
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+        'HP',
+      ],
+      village: [
+        'HP1',
+        'HP1',
+        'HP1',
+        'HP1',
+        'HP1',
+        'HP1',
+        'HP1',
+      ],
+    },
+    {
+      city: 'DN',
+      district: [
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+        'DN',
+      ],
+      village: [
+        'DN1',
+        'DN1',
+        'DN1',
+        'DN1',
+        'DN1',
+        'DN1',
+        'DN1',
+      ],
+    },
+  ];
+  public districts: string[] = ['quan/huyen'];
+
+  public villages: string[] = ['lang/xa'];
+
+  public changeCity(event: any) {
+    const city = event.target.value;
+
+    if (!city) {
+      return;
+    }
+    //cach 1
+    // const search = this.cities.filter(data => data.city === city)
+    // console.log('event', search);
+    // if (search && search.length > 0) {
+    //   this.districts = search[0].district;
+    // }
+
+    // const search2 = this.cities.filter(data => data.district === this.districts)
+    // console.log('event', search2);
+    // if (search2 && search2.length > 0) {
+    //   this.districts = search2[0].village;
+    // }
+
+    //cach 2 
+    this.districts = this.cities.find(data => data.city === city)?.district || [];
+
+  }
+
+  public changeDistrict(event: any) {
+    const district = event.target.value;
+    const village = event.target.value;
+    console.log(village);
+    if (!district) {
+      return;
+    }
+
+    this.villages = this.cities.find(data => data.district === district)?.village || [];
+    console.log(this.villages);
   }
 }
