@@ -26,12 +26,15 @@ public class Product extends BaseObject{
     private String material;
     @Column
     private String sectors;
-    @Column
-    private String province;
-    @Column
-    private String district;
-    @Column
-    private String village;
+    @OneToOne
+    @JoinColumn(name = "province_id",referencedColumnName = "code")
+    private Province province;
+    @OneToOne
+    @JoinColumn(name = "district_id",referencedColumnName = "code")
+    private District district;
+    @OneToOne
+    @JoinColumn(name = "ward_id",referencedColumnName = "code")
+    private Ward ward;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "product")
     private List<Customer> customerList;
@@ -118,28 +121,28 @@ public class Product extends BaseObject{
         this.sectors = sectors;
     }
 
-    public String getProvince() {
+    public Province getProvince() {
         return province;
     }
 
-    public void setProvince(String province) {
+    public void setProvince(Province province) {
         this.province = province;
     }
 
-    public String getDistrict() {
+    public District getDistrict() {
         return district;
     }
 
-    public void setDistrict(String district) {
+    public void setDistrict(District district) {
         this.district = district;
     }
 
-    public String getVillage() {
-        return village;
+    public Ward getWard() {
+        return ward;
     }
 
-    public void setVillage(String village) {
-        this.village = village;
+    public void setWard(Ward ward) {
+        this.ward = ward;
     }
 
     public List<Customer> getCustomerList() {
